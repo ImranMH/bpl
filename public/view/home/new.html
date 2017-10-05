@@ -1,0 +1,25 @@
+<div class="addnew_form component">
+		<h2 class="content_title">Add a new link</h2>
+		<div class="new_weblink">
+			<form>
+				<div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" ng-model="vm.weblink.title">
+        </div>
+        <div class="form-group">
+            <label>url</label>
+            <input type="text" class="form-control" ng-model="vm.weblink.url">
+        </div>
+        <div class="form-group">
+            <label>Type</label>
+            <input type="text" class="form-control" ng-model="vm.weblink.type">
+        </div>
+				<div class="form-group">
+            <label>description (maximum 200 words)</label>
+            <textarea maxlength="200"  class="form-control" ng-model="vm.weblink.description"></textarea>
+        </div>
+        <button ng-click="vm.addNewLink(vm.weblink)" class="btn btn-primary btn-lg">Add Weblink 
+        </button>
+			</form>
+		</div>
+</div>

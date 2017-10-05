@@ -1,0 +1,22 @@
+<h2 class="content_header">follower content</h2>
+
+<div class="feedlist" ng-repeat="user in vm.followers | orderBy:'-_id'">
+					
+	<a href="#/user/{{user._id}}" class="profile">
+		
+		
+		<div class="profile_pic_feed">
+			<img class="profile_pic" ng-src="uploads/{{user.avater}}" alt="">
+		</div>						
+	</a>
+
+	<div class=" post_feed">
+		<div class="user_title"><a ui-sref="singleUser.feed({id:user._id})" class="">{{user.name}}</a></div>
+		<ul>
+			<li>{{user.username}}</li>
+			<li>Link share{{user.createLink.length}}</li>
+			<li>Registered Website{{user.weblinkRegisterList.length}}</li>
+		</ul>	
+		
+	</div>
+</div>

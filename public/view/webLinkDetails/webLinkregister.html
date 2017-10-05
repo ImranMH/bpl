@@ -1,0 +1,38 @@
+<div class="edit_info_container" >
+<h2 class="content_title">Register This site as Registered Weblink</h2>
+	<ul class="edit_info">
+	<small>fill the field which you can save in your profile </small>
+		<li>
+			<div class="item"><span class="edited_item">Useraame: </span></div>
+			<input type="text" class="form-control" name="" ng-model="vm.register_item.username" >
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Email: </span></div>
+			<input type="text" class="form-control" name="" ng-model="vm.register_item.email" >
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Oauth Login: </span></div>
+			<input type="text" class="form-control" name="" ng-model="vm.register_item.oaProvider" >
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Oauth Username: </span></div>
+			<input type="text" class="form-control" name="" ng-model="vm.register_item.oaUser" >
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Profile Url: </span></div>
+			<input type="text" class="form-control" name="" ng-model="vm.register_item.profileUrl" >
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Dashboard Url </span></div>
+			<input type="text" ng-model="vm.register_item.dashboardUrl" class="form-control">
+			 									
+		</li>
+		<li>
+			<div class="item"><span class="edited_item">Note Or Special Hint  (maximum 100 words)</span></div>
+			<textarea class="form-control" maxlength="100" ng-model= "vm.register_description"></textarea>
+			 									
+		</li>
+		<button class="btn btn-primary" ng-click="vm.register_link(vm.register_item)">Register</button>
+		<a class="btn btn-warning" href="#/weblink/{{vm.data.weblink._id}}">Cancel</a>
+	</ul>
+</div>

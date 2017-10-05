@@ -1,0 +1,26 @@
+<div class="alert alert-danger">{{vm.message}}</div>
+
+<h2>Edit Weblink {{vm.link_detail.title}}</h2>
+	<div class="new_weblink">
+		<form>
+			<div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" ng-model="vm.weblink.title">
+      </div>
+      <div class="form-group">
+          <label>url</label>
+          <input type="text" class="form-control" ng-model="vm.weblink.url">
+      </div>
+      <div class="form-group">
+          <label>Type</label>
+          <input type="text" class="form-control" ng-model="vm.weblink.type">
+      </div>
+			<div class="form-group">
+          <label>description (maximum 100 words)</label>
+          <textarea class="form-control" ng-model="vm.weblink.description"></textarea>
+      </div>
+        <a class="btn btn-warning" href="#/weblink/{{vm.data.weblink._id}}">Cancel</a>
+      <button ng-click="vm.EditWebLink(vm.weblink)" class="btn btn-primary">Edit Weblink 
+      </button>
+		</form>
+	</div>

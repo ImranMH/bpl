@@ -1,0 +1,23 @@
+	<div class="feedlist" >
+			
+		<h2 class="content_header">Bookmarked page</h2>
+		<ul class="content">
+			<li class=" " ng-repeat= "bookmark in vm.bookmarks | orderBy:'-_id'">
+				<div class="float_content">
+					<div class="content_left">
+						<h2 class="content_title"><a href="#/weblink/{{bookmark._id}}">{{bookmark.title}}</a></h2>
+						<a target="_blank" href="{{bookmark.url}}">{{bookmark.url}}</a>					
+					</div>
+					<div class="content_right">
+						<div class="weblink_type">{{bookmark.type}}</div>	
+					</div>
+					
+				</div>
+				
+					
+				<p>{{bookmark.description}}</p>
+			</li>
+		</ul>
+
+		</div>
+

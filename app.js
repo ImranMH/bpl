@@ -13,40 +13,40 @@ const express = require('express')
 const MongoStore = require('connect-mongo')(session);
 const app     = express()
 const env     = process.env;
-const port    = env.NODE_PORT || 8080
-const ip    = env.NODE_IP || '0.0.0.0'
+// const port    = env.NODE_PORT || 8080
+// const ip    = env.NODE_IP || '0.0.0.0'
 //var register = require('./register')
 var configDB = require('./server/config/database');
-// var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-//     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
-//     mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
-//     mongoURLLabel = "";
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0',
+    mongoURL = process.env.OPENSHIFT_MONGODB_DB_URL || process.env.MONGO_URL,
+    mongoURLLabel = "";
 
-// if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
-//   var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
-//       mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'],
-//       mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'],
-//       mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
-//       mongoPassword = process.env[mongoServiceName + '_PASSWORD']
-//       mongoUser = process.env[mongoServiceName + '_USER'];
+if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
+  var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
+      mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'],
+      mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'],
+      mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
+      mongoPassword = process.env[mongoServiceName + '_PASSWORD']
+      mongoUser = process.env[mongoServiceName + '_USER'];
 
-//   if (mongoHost && mongoPort && mongoDatabase) {
-//     mongoURLLabel = mongoURL = 'mongodb://';
-//     if (mongoUser && mongoPassword) {
-//       mongoURL += mongoUser + ':' + mongoPassword + '@';
-//     }
-//     // Provide UI label that excludes user id and pw
-//     mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-//     mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
+  if (mongoHost && mongoPort && mongoDatabase) {
+    mongoURLLabel = mongoURL = 'mongodb://';
+    if (mongoUser && mongoPassword) {
+      mongoURL += mongoUser + ':' + mongoPassword + '@';
+    }
+    // Provide UI label that excludes user id and pw
+    mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
+    mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
 
-//   }
-// }
+  }
+}
 
 
 
  var connectingString = configDB.dev
  if (env.OPENSHIFT_MONGODB_DB_URL) {
-  connectingString = env.OPENSHIFT_MONGODB_DB_URL
+  connectingString = mongoURL
  }
  mongoose.connect(connectingString);
 

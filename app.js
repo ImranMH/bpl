@@ -111,7 +111,12 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 
   var passportInit = require('./server/config/passport');
   passportInit(passport)
-  
+
+  app.get('/pagecount', function (req, res) {
+  // try to initialize the db on every request if it's not already
+  // initialized.
+
+});
 
   app.get('/home/:username/registered/:id', function(req, res){
     var username = req.params.username;

@@ -1,4 +1,2 @@
-node_modules
-.DS_Store
-.idea
-Thumbs.db
+/node_modules/
+npm-debug.log

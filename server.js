@@ -73,7 +73,10 @@ app.get('/', function (req, res) {
     res.render('index.html', { pageCountMessage : null});
   }
 });
-
+app.use((req, res, next )=>{
+  console.log('inside request');
+  next()
+})
 app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
